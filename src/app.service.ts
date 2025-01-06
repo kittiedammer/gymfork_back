@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World test auto deploy))!';
+  getHello(): {message: string} {
+    return {message: 'Hello World test aut 22o deplo ыыy))!'};
   }
 }
