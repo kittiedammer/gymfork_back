@@ -1,12 +1,18 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ConfigService } from '@nestjs/config';
 
-@Controller()
+@Controller({
+  path: '',
+})
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private configService: ConfigService,
+  ) {}
 
   @Get()
-  getHello(): { message: string; } {
-    return this.appService.getHello();
+  getHello(): string {
+    return this.configService.get('dbconfig.dev.type');
   }
 }
